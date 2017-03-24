@@ -5,8 +5,10 @@ node_js:
   - "6"
   - "7"
 
+
 script:
   - npm run test:ci
 
 after_success:
+  - ./node_modules/.bin/bithound check git@github.com:thibmaek/bpost.git
   - bash <(curl -s https://codecov.io/bash)
